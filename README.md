@@ -1,4 +1,4 @@
-# Beauty/Cosmetic Trademark Monitor
+# Cosmetic/Beauty Brand Trademark Monitor
 
 This app will utilize the United States Patent and Trademark Office's APIs to monitor new trademarks submitted by various cosmetics companies. It will return a list of trademarks, which will be filterable by filing date; status; status date; word mark; mark drawing; and classification. 
 
