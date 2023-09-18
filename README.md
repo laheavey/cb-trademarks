@@ -2,7 +2,7 @@
 
 This app will utilize the United States Patent and Trademark Office's APIs to monitor new trademarks submitted by various cosmetics companies. It will return a list of trademarks, which will be filterable by filing date; status; status date; word mark; mark drawing; and classification. 
 
-**Why**: Consumers are typically forced to sign up for email lists or follow controversy-prone influencers to learn about new releases and rumored products. By pulling trademark information directly from the source filings, I'll be able to flag potential future releases from brands I care about while minimizing unwanted interactions.
+> Consumers are typically forced to sign up for spammy email lists or follow controversy-prone influencers if they want to keep up with new product news. By pulling trademark information directly from the source filings, I'll be able to flag potential new products from brands I care about while minimizing unwanted interactions.
 
 
 ### Table of Contents
@@ -10,23 +10,18 @@ This app will utilize the United States Patent and Trademark Office's APIs to mo
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-<!-- - [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Notes](#notes)
-  - Thoughts
-  - Challenges
-  - Future State -->
+- Usage
+- Screenshots
+- Notes
+
 
 ## Approach
 
-There's no single source of unbiased truth for what brands are up to, and that's really annoying.
+There's no single source of unbiased truth for what beauty brands are up to, and that's really annoying. I just want one site where I can see what's new and rumored for the companies I'm interested in. I don't want to be on an email list for the smallest crumbs of news way after everyone else has it, and I don't want to follow social media influencers that regularly incite drama and behave badly.  
 
-I'm a regular consumer of cosmetic products, and I want to know what the brands I like are gonna release next. Companies often require consumers to sign up for email lists, where I *might* get an occasional heads up, but I'm often just spammed. There are also several popular social media accounts that post about new releases and rumored launches, but the humans behind these accounts regularly incite drama and controversy.  
-
-I just want one site where I can see what's new & might be on deck for the companies I care about, without a brand trying to upsell me or an influencer behaving badly. I figured I could probably make it? 💅🤷‍♀️
+This feels like a fixable problem. I'm already in the habit of looking up new trademarks, because I am a super nerd who appreciates government transparency and knowing things before everyone else; I figured I could probably use that habit to start taking a wider, FOMO-free look at beauty brands.
 
 My intent is to tackle this in three stages: 
-
 
 ### Stage 1: Initial Exploration
 - [x] Identify a framework to use
@@ -34,11 +29,11 @@ My intent is to tackle this in three stages:
 - [x] Learn about trademarks/patents/copywrites, how to find them, and what parts of each are relevant for my use case
 - [x] Figure out how to access the trademark/patent/copywrite information I want
   - [x] Web crawler, to sites that already compile this info? 
-  - I've used Playwright to crawl before, and it always felt very slow when rendering. Cosmetics are visual, didn't feel right to write a script w/o an aesthetic & pleasing front-end.
+    - I've used Playwright to crawl before, and it always felt very slow when rendering. Cosmetics are visual, didn't feel right to write a script w/o an aesthetic & pleasing front-end.
   - [x] USPTO Trademark Assignment Search API
-  - Would like to use this one; contains the most relevant information for my use case and doesn't require an API key. Unfortunately running into a certificate error on fetch.
+    - Would like to use this one; contains the most relevant information for my use case and doesn't require an API key. Running into a certificate error on fetch.
   - [x] USPTO Trademark Status Document Retrieval API
-  - Returns images and PDF documents submitted; this API works most easily for me, but will require additional work to drill down to the info I want.
+    - Returns images and PDF documents submitted; this API works most easily for me, but will require additional work to drill down to the info I want.
 - [ ] Nail down scope of project; SPA? 
 - [ ] Populate US-based indie brand list
   - Conglomerate parent companies like Estee Lauder/LVMH may add complexity; unsure, skipping for now
@@ -101,11 +96,11 @@ With the server running, navigate to http://localhost:3000 if the run client scr
 - [Tailwind CSS](https://tailwindcss.com/)
 - [xml2js](https://www.npmjs.com/package/xml2js) 
 
-<!-- ## Usage
+## Usage
 
 
 ## Screenshots
 
 
-## Notes -->
+## Notes
 
