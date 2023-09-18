@@ -1,34 +1,111 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Beauty/Cosmetic Trademark Monitor
+
+This app will utilize the United States Patent and Trademark Office's APIs to monitor new trademarks submitted by various cosmetics companies. It will return a list of trademarks, which will be filterable by filing date; status; status date; word mark; mark drawing; and classification. 
+
+**Why**: Consumers are typically forced to sign up for email lists or follow controversy-prone influencers to learn about new releases and rumored products. By pulling trademark information directly from the source filings, I'll be able to flag potential future releases from brands I care about while minimizing unwanted interactions.
+
+
+### Table of Contents
+- [Approach](#approach)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+<!-- - [Usage](#usage)
+- [Screenshots](#screenshots)
+- [Notes](#notes)
+  - Thoughts
+  - Challenges
+  - Future State -->
+
+## Approach
+
+There's no single source of unbiased truth for what brands are up to, and that's really annoying.
+
+I'm a regular consumer of cosmetic products, and I want to know what the brands I like are gonna release next. Companies often require consumers to sign up for email lists, where I *might* get an occasional heads up, but I'm often just spammed. There are also several popular social media accounts that post about new releases and rumored launches, but the humans behind these accounts regularly incite drama and controversy.  
+
+I just want one site where I can see what's new & might be on deck for the companies I care about, without a brand trying to upsell me or an influencer behaving badly. I figured I could probably make it? 💅🤷‍♀️
+
+My intent is to tackle this in three stages: 
+
+
+### Stage 1: Initial Exploration
+- [x] Identify a framework to use
+  - [x] Landed on Next.js w/ React; not totally foreign, not totally familiar.
+- [x] Learn about trademarks/patents/copywrites, how to find them, and what parts of each are relevant for my use case
+- [x] Figure out how to access the trademark/patent/copywrite information I want
+  - [x] Web crawler, to sites that already compile this info? 
+  - I've used Playwright to crawl before, and it always felt very slow when rendering. Cosmetics are visual, didn't feel right to write a script w/o an aesthetic & pleasing front-end.
+  - [x] USPTO Trademark Assignment Search API
+  - Would like to use this one; contains the most relevant information for my use case and doesn't require an API key. Unfortunately running into a certificate error on fetch.
+  - [x] USPTO Trademark Status Document Retrieval API
+  - Returns images and PDF documents submitted; this API works most easily for me, but will require additional work to drill down to the info I want.
+- [ ] Nail down scope of project; SPA? 
+- [ ] Populate US-based indie brand list
+  - Conglomerate parent companies like Estee Lauder/LVMH may add complexity; unsure, skipping for now
+  - Not certain if the World International Property Organization has an API, and I'm not certain if brands file with one organization before the other or simultaneously? 
+- [ ] Nail down testing: best practices, expected behavior, etc.
+
+### Stage 2: Initial Build
+- [ ] Begin pulling meaningful data
+  - [ ] Figure out XML to JSON conversion
+  - [ ] Figure out how to extract the data I want from what I've pulled
+  - [ ] Bundle multiple companies into one API call? Determine if this is worth it or if it's too messy.
+- [ ] Get the data to the DOM
+  - [ ] Render trademark info on the DOM
+  - [ ] Make sure it's accessible
+    - [ ] Use semantic HTML
+    - [ ] Add labels/scope/name
+    - [ ] Confirm navigable by tab key
+- [ ] Basic styling
+
+### Stage 3: Improvements
+- [ ] Styling for readability, morale-boosting, endorphins, etc.
+  - [ ] Make responsive
+  - [ ] Keep accessible
+  - [ ] Add filtering for company, date, image included, status, etc.
+- [ ] Add additional features
+  - [ ] Integrate brand social media
+    - [ ] Instagram posts
+    - [ ] Company news/brand announcements
+- [ ] Integrate metrics
+  - [ ] Dead/abandoned trademarks vs live per company, per year, etc.
+  - [ ] Avg. trademarks submitted per company, per year, etc.
+
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- [Node.js](https://nodejs.org/en/docs/)
+
+
+### Installation
+
+Using your package manager, install the dependencies.
+```
+$ ~ npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the development server.
+```
+$ ~ npm run dev
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+With the server running, navigate to http://localhost:3000 if the run client script doesn't automatically open the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Built With
 
-## Learn More
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [Next.js](https://nextjs.org/)
+- [React.js](https://beta.reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [xml2js](https://www.npmjs.com/package/xml2js) 
 
-To learn more about Next.js, take a look at the following resources:
+<!-- ## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes -->
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
